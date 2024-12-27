@@ -5,9 +5,7 @@ const asyncHandler = require("express-async-handler");
 exports.queryAllAuthors = asyncHandler(async (req, res, next) => {
   const authorsList = await Author.queryAllAuthors();
 
-  const response = res.json({
-    authorsList: authorsList,
-  });
+  const response = res.json(authorsList);
 
   return response;
 });
