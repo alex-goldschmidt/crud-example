@@ -6,8 +6,11 @@ class Author {
   }
 
   static async create(author) {
-    const [result] = await db.execute("INSERT INTO author SET ?", [author]);
-    return result;
+    const [result] = await db.execute(
+      "INSERT INTO author (firstName, lastName) VALUES (?, ?)",
+      [author.firstName, author.lastName]
+    );
+    return { authorId: result.insertId, ...author };
   }
 
   static async queryAllAuthors() {

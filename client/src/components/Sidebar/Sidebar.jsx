@@ -11,6 +11,9 @@ export const Sidebar = () => {
         <li>
           <Link to="/authors">All authors</Link>
         </li>
+        <li>
+          <Link to="/author/create">Create Author</Link>
+        </li>
       </ul>
     </div>
   );

@@ -8,6 +8,7 @@ import { AuthorsList } from "./pages/AuthorsList/AuthorsList.jsx";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Sidebar } from "./components/Sidebar/Sidebar.jsx";
 import { Author } from "./pages/Author/Author.jsx";
+import { AuthorCreate } from "./pages/AuthorCreate/AuthorCreate.jsx";
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/authors" element={<AuthorsList />} />
           <Route path="/" element={<App />} />
           <Route path="/authors/author/:authorId" element={<Author />} />
+          <Route path="/author/create" element={<AuthorCreate />} />
         </Routes>
         <ReactQueryDevtools />
       </BrowserRouter>

@@ -23,7 +23,7 @@ export const Author = () => {
   const queryFunction = () => getAuthorByAuthorId(authorId);
   return (
     <ReactQueryFetchItem
-      reactQueryKey={["authors", authorId]}
+      reactQueryKey={["authors", parseInt(authorId)]}
       queryFunction={queryFunction}
       renderFunction={displayAuthor}
     />

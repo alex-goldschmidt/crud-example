@@ -19,9 +19,7 @@ exports.queryByAuthorId = asyncHandler(async (req, res, next) => {
     return next(err);
   }
 
-  const response = res.json({
-    author: author,
-  });
+  const response = res.json(author);
 
   return response;
 });
@@ -29,8 +27,8 @@ exports.queryByAuthorId = asyncHandler(async (req, res, next) => {
 exports.authorCreatePost = [
   asyncHandler(async (req, res, next) => {
     const author = new Author({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
+      firstName: req.body.firstName.trim(),
+      lastName: req.body.lastName.trim(),
     });
 
     const data = await Author.create(author);
@@ -40,9 +38,7 @@ exports.authorCreatePost = [
       err.status = 404;
       return next(err);
     }
-    const jsonResponse = res.json({
-      newAuthor: data,
-    });
+    const jsonResponse = res.json(data);
 
     return jsonResponse;
   }),
