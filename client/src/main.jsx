@@ -9,7 +9,14 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Sidebar } from "./components/Sidebar/Sidebar.jsx";
 import { Author } from "./pages/Author/Author.jsx";
 import { AuthorCreate } from "./pages/AuthorCreate/AuthorCreate.jsx";
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * (60 * 1000), // 5 mins
+      gcTime: 10 * (60 * 1000), // 10 mins
+    },
+  },
+});
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

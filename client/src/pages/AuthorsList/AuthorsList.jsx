@@ -1,14 +1,15 @@
 import { getAllAuthors } from "../../api/AuthorsApi";
 import { ReactQueryFetchItem } from "../../components/ReactQueryFetchItem/ReactQueryFetchItem";
+import { Link } from "react-router-dom";
 import "./AuthorsList.scss";
 
 const displayAuthorsList = (authors) => {
   const authorsListItems = authors.map((author) => {
     return (
       <li key={author.authorId}>
-        <a href={`/authors/author/${author.authorId}`}>
+        <Link to={`/authors/author/${author.authorId}`}>
           Author {author.authorId}: {author.firstName} {author.lastName}
-        </a>
+        </Link>
       </li>
     );
   });
