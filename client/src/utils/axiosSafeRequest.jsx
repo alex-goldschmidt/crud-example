@@ -20,6 +20,6 @@ export const fetchSafeRequest = async (method, url, data = null) => {
     const responseData = await response.json();
     return responseData;
   } catch (error) {
-    console.log("Axios request failed:", error.message);
+    console.log("Fetch request failed:", error.message);
   }
 };
